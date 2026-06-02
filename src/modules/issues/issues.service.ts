@@ -36,13 +36,12 @@ const getAllIssuesFromDB = async (
     query += ` WHERE i.status = '${status}'`;
   }
   query += ` JOIN users u ON u.id = i.reporter_id ORDER BY i.created_at ${sort === "oldest" ? "ASC" : "DESC"}`;
-  console.log(query);
+
   const issues = pool.query(query);
   return issues;
 };
 
 const getSingleIssueFromDB = async (id: number) => {
-  console.log(id);
   const issue = pool.query(
     `
   SELECT

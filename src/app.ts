@@ -1,10 +1,14 @@
 import express, { type Application } from "express";
+import { logger } from "./middleware/logger";
 import { authRouter } from "./modules/auth/auth.route";
 import { issuesRoute } from "./modules/issues/issues.route";
 
 const app: Application = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(logger);
+
 app.use("/api/auth", authRouter);
 app.use("/api/issues", issuesRoute);
 

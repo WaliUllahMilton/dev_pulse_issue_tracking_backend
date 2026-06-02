@@ -102,3 +102,4 @@ pids/
 .vscode-test
 .vscode/settings.json
 .vscode/extensions.json
+.vercel
